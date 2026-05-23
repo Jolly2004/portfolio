@@ -1,6 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+
+const downloadResume = () => {
+  const link = document.createElement("a");
+  link.href = "/resume.pdf";
+  link.download = "resume.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 const dots = [
   { top: "10%", left: "15%" },
   { top: "20%", left: "80%" },
@@ -94,9 +103,12 @@ const Header: React.FC = () => {
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-10">
               
-              <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 font-semibold text-lg hover:scale-105 transition duration-300 shadow-lg">
-                Download Resume
-              </button>
+             <button
+  onClick={downloadResume}
+  className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 font-semibold text-lg hover:scale-105 transition duration-300 shadow-lg"
+>
+  Download Resume
+</button>
 
               <button className="px-8 py-4 rounded-2xl border border-cyan-500/40 bg-white/5 backdrop-blur-md font-semibold text-lg hover:bg-cyan-500/10 transition">
                 View Projects
